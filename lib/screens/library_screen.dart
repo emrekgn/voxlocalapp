@@ -97,14 +97,14 @@ class _LibraryScreenState extends State<LibraryScreen> {
           folderName: 'Personal',
           noteCount: 15,
           icon: Icons.person_outline_rounded,
-          onTap: () {},
+          onTap: () => context.push('/folder/personal?name=Personal'),
         ),
         const SizedBox(height: AppSpacing.sm),
         FolderItem(
           folderName: 'Ideas',
           noteCount: 42,
           icon: Icons.lightbulb_outline_rounded,
-          onTap: () {},
+          onTap: () => context.push('/folder/ideas?name=Ideas'),
         ),
         const SizedBox(height: AppSpacing.lg),
         Text(

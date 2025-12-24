@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:voice_vault/theme.dart';
 import 'package:voice_vault/components/pulsing_mic_button.dart';
 import 'package:voice_vault/components/waveform_animation.dart';
@@ -25,7 +26,9 @@ class _RecordScreenState extends State<RecordScreen> {
       } else if (_state == RecordingState.recording) {
         _state = RecordingState.processing;
         Future.delayed(const Duration(seconds: 3), () {
-          if (mounted) setState(() => _state = RecordingState.idle);
+          if (!mounted) return;
+          setState(() => _state = RecordingState.idle);
+          context.push('/note/new');
         });
       }
     });

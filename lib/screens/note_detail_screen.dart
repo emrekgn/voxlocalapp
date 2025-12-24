@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:voice_vault/theme.dart';
 import 'package:voice_vault/components/tag_chip.dart';
 
@@ -131,14 +132,14 @@ The meeting concluded with everyone feeling excited about the direction we're he
           ),
           actions: [
             TextButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => context.pop(),
               child: const Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
                 if (controller.text.isNotEmpty) {
                   setState(() => _tags.add(controller.text.toLowerCase()));
-                  Navigator.pop(context);
+                  context.pop();
                 }
               },
               child: const Text('Add'),
@@ -161,7 +162,7 @@ The meeting concluded with everyone feeling excited about the direction we're he
                 children: [
                   IconButton(
                     icon: const Icon(Icons.arrow_back_rounded),
-                    onPressed: () => Navigator.pop(context),
+                    onPressed: () => context.pop(),
                   ),
                   Expanded(
                     child: TextField(
